@@ -1,0 +1,33 @@
+<form action="/students/<%= @student.id %>" method="post">
+
+  <label for="first-name">First Name:</label>
+  <input id="first-name" type="text" name="first_name" value="<%= @student.first_name %>">
+
+  <label for="last-name">Last Name:</label>
+  <input id="last-name" type="text" name="last_name" value="<%= @student.last_name %>">
+
+  <label for="age">Age:</label>
+  <input id="age" type="number" name="age" value="<%= @student.age %>">
+
+<label for="house_select">Select House:</label>
+<select name="house_id" id="house_select">
+  <% @houses.each do |house| %>
+    <option value="<%= house.id %>" <%= 'selected' if
+      @student.house_id == house.id %>><%= house.name %></option>
+  <% end %>
+
+</select>
+
+<input type="submit" value="Update Student">
+
+</form>
+
+<form class="" action="/students/<%= @student.id %>/delete" method="post">
+<input type="submit" value="DELETE">
+
+
+</form>
+<!-- <option value="1">Gryffindor</option>
+<option value="2">Hufflepuff</option>
+<option value="3">Ravenclaw</option>
+<option value="4">Slytherin</option> -->
